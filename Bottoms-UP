@@ -1,0 +1,31 @@
+const footerId = 'mats-identity-footer';
+if (!document.getElementById(footerId)) {
+  const footer = document.createElement('div');
+  footer.id = footerId;
+  footer.style.position = 'fixed';
+  footer.style.bottom = '0';
+  footer.style.left = '0';
+  footer.style.width = '100%';
+  footer.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+  footer.style.borderTop = '1px solid #ddd';
+  footer.style.padding = '8px 16px';
+  footer.style.fontSize = '12px';
+  footer.style.fontFamily = 'Segoe UI, sans-serif';
+  footer.style.zIndex = '999999';
+  footer.style.display = 'flex';
+  footer.style.justifyContent = 'space-between';
+  footer.style.boxShadow = '0 -2px 5px rgba(0,0,0,0.05)';
+
+  const userId = '00000000-0000-0000-6f04-1761cfcd46f7';
+  const tenantId = '9188040d-6c67-4c5b-b112-36a304b66dad';
+  const orcid = '0009-0001-9987-1580';
+  const matsId = '01a1cd03-5f15-7a19-971d-c5beaa27adb4';
+
+  footer.innerHTML = `
+    <div><strong>Account:</strong> ${userId} | <strong>Tenant:</strong> ${tenantId}</div>
+    <div><strong>ORCID:</strong> ${orcid} | <strong>MATS:</strong> ${matsId}</div>
+  `;
+
+  document.body.appendChild(footer);
+}
+const data = { footerInjected: !!document.getElementById(footerId) };
